@@ -44,12 +44,22 @@ Assets/
 - GTX 1080Ti target hardware
 - 60fps minimum
 
+### Implementation
+- Created base folder structure in Unity
+- Configured Git LFS for binary assets
+- Added README.md to each module describing purpose
+- Created Main_scene.unity as starting point
+
+### Cleanup (2025-11-01)
+- Removed example Scripts/ folder (HelloWorld.cs)
+- Tracked missing .meta files
+- Established principle: only create subfolders when assets exist (no empty placeholders)
+
 ### Next Session Goals
-1. Create folder structure in Unity project
-2. Configure URP baseline (post-processing, quality settings)
-3. Design character controller architecture
-4. Implement basic movement
-5. Create first shader (water suggested as most visually impactful)
+1. Configure URP baseline (post-processing, quality settings for vibrant look)
+2. Design character controller architecture
+3. Implement basic movement
+4. Create first shader (water suggested as most visually impactful)
 
 ### Open Questions
 - Which specific asset packs to use? (TBD when we start scene composition)
@@ -63,6 +73,61 @@ Assets/
 - Thin MonoBehaviours
 - Event-driven environmental reactions
 - ScriptableObjects for data
+
+---
+
+## 2025-11-01 - URP Configuration Complete
+
+### What Was Built:
+- Created custom URP Render Pipeline Asset: `CustomURP_StylizedSettings`
+- Created custom URP Renderer: `CustomURP_StylizedSettings_Renderer`
+- Created Volume Profile: `CustomVolumeProfile_Stylized`
+- Configured scene-based fog for atmospheric depth
+- Test scene (TestScene) created for validation
+
+### Decisions Made:
+- **URP Quality Settings:**
+  - HDR: Enabled (wider color/brightness range)
+  - MSAA: 4x (smooth edges on geometry)
+  - Render Scale: 1.0 (native resolution)
+  - Shadow Resolution: 2048 (high quality shadows)
+  - Shadow Distance: 50 units
+  - Depth Texture: Enabled (required for effects)
+  - Opaque Texture: Enabled (required for advanced effects)
+
+- **Post-Processing Stack (Volume Profile):**
+  - Tonemapping: Neutral mode (HDR color mapping)
+  - Bloom: Intensity 0.3 (subtle glow on bright areas)
+  - Color Adjustments: Contrast +15, Saturation +20 (vibrant, punchy colors)
+  - White Balance: Temperature -5 (slightly cooler/bluer tone)
+  - Other effects present but inactive (intensity 0) for future use
+
+- **Fog Configuration:**
+  - Mode: Linear
+  - Color: Light blue (matches skybox)
+  - Start: 15 units
+  - End: 70 units
+  - Provides atmospheric depth and fantasy ambiance
+
+### Technical Details:
+- URP Asset referenced in Project Settings > Graphics
+- Volume Profile assigned to URP Asset as default global volume
+- Post-processing must be enabled per-camera (UniversalAdditionalCameraData component)
+- Fog configured in Lighting window > Environment > Other Settings (not a Volume override in URP)
+
+### Problems Encountered:
+- Unity 6 stability issues: Multiple crashes during session (AssetImportWorker errors)
+- Initial confusion about Volume system vs URP Asset roles clarified
+- Fog is NOT a Volume override in URP (unlike HDRP) - configured in Lighting settings instead
+
+### Next Steps:
+1. Design character controller architecture (interfaces, data classes)
+2. Implement basic third-person movement
+3. Create first custom shader (water recommended)
+
+### Open Questions:
+- Should we reduce MSAA/quality settings to improve editor stability?
+- Final post-processing values will be tuned once we have actual scene content
 
 ---
 

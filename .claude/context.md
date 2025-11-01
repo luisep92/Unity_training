@@ -65,10 +65,8 @@ Assets/
     ├── _Core/                       # Shared interfaces, utils, rendering config
     ├── Character/                   # Complete player module
     ├── Environment/                 # All environment systems
-    │   ├── _Shared/                # Common environmental code
-    │   ├── Water/
-    │   ├── Vegetation/
-    │   └── Creatures/
+    │   └── _Shared/                # Common environmental code
+    │       # Subfolders (Water, Vegetation, Creatures) created as needed
     ├── VFX/                        # Particle systems and magical effects
     └── Scenes/
 ```
@@ -76,6 +74,7 @@ Assets/
 ### Module Philosophy
 - Each folder is self-contained and exportable
 - Modules group by FEATURE, not file type
+- **Create subfolders only when assets/code exist** - no empty placeholder folders
 - Use `_Shared/` for common code within a category
 - `_Core/` only for things EVERYTHING needs
 
@@ -102,22 +101,20 @@ Assets/
 - Original asset packs documented in `ThirdParty_Modified/README.md`
 
 ## Current Status
-- ✅ Unity project created
+- ✅ Unity project created (Unity 6000.0.61f1 LTS)
 - ✅ Git repository initialized with proper .gitignore
-- ✅ Modular folder structure designed
-- ✅ Git LFS configured
-- ⏳ Structure needs to be created in actual project
-- ⏳ URP configuration pending
+- ✅ Modular folder structure created (core modules only)
+- ✅ Git LFS configured (.gitattributes)
+- ✅ Basic project structure committed
+- ✅ URP configured (vibrant, stylized look with post-processing and fog)
 - ⏳ Character controller architecture pending
 - ⏳ First shader pending
 
 ## Next Steps
-1. Create folder structure in Unity project
-2. Configure URP for vibrant, stylized look
-3. Design Character controller architecture (interfaces + data classes)
-4. Implement basic third-person movement
-5. Create first custom shader (water recommended)
-6. Build environmental reaction system framework
+1. Design Character controller architecture (interfaces + data classes)
+2. Implement basic third-person movement
+3. Create first custom shader (water recommended)
+4. Build environmental reaction system framework
 
 ## Reference Visual Style
 See: `/mnt/project/keeper.png` - This is the vibrant, saturated, fantasy aesthetic we're aiming for.
