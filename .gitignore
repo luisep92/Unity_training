@@ -95,5 +95,39 @@ InitTestScene*.unity*
 /[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers
 /[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers.meta
 
+# --- OS junk ---
+.DS_Store
+.DS_Store?
+Thumbs.db
+ehthumbs.db
+Icon?
+desktop.ini
+
+# --- IDEs ---
+# VS Code: ignora todo menos archivos útiles que quieras compartir
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# JetBrains / Rider
+.idea/
+
+# ReSharper / local caches
+_ReSharper.Caches/
+
+# --- Secrets / credenciales ---
+*.keystore
+*.jks
+*.pem
+*.p12
+*.cer
+*.crt
+*.key
+.env
+.env.*
+
+
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
