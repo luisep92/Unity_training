@@ -107,14 +107,17 @@ Assets/
 - ✅ Git LFS configured (.gitattributes)
 - ✅ Basic project structure committed
 - ✅ URP configured (vibrant, stylized look with post-processing and fog)
-- ⏳ Character controller architecture pending
-- ⏳ First shader pending
+- ⏳ Water shader (first custom shader) - IN PROGRESS
+- ⏳ Basic terrain/environment pending
+- ⏳ Minimal character controller (capsule only, no animations) - DEFERRED
 
-## Next Steps
-1. Design Character controller architecture (interfaces + data classes)
-2. Implement basic third-person movement
-3. Create first custom shader (water recommended)
-4. Build environmental reaction system framework
+## Next Steps (Priority Order)
+1. **Create water shader** (ShaderGraph) - Visual impact + learning foundation
+2. **Create basic terrain** - Context for water and environment
+3. **Vegetation/wind shader** - Build on ShaderGraph knowledge
+4. **Minimal player controller** - Capsule + WASD + mouse look (no model/animations yet)
+5. **Environmental reactivity system** - Creatures flee, grass sways, particles react
+6. **Character model + animations** - LATER (when environment is complete)
 
 ## Reference Visual Style
 See: `/mnt/project/keeper.png` - This is the vibrant, saturated, fantasy aesthetic we're aiming for.

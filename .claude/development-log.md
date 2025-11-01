@@ -131,6 +131,40 @@ Assets/
 
 ---
 
+## 2025-11-01 - Priority Shift: Visual-First Approach
+
+### Decision Made:
+**Reprioritized development order: Shaders and environment BEFORE character controller**
+
+### Reasoning:
+- Character controller with full animations is heavy work:
+  - Controller + input system
+  - 3D model + rigging
+  - Animation set (idle, walk, run, jump)
+  - Blend trees for transitions
+  - Integration with environment
+
+- Visual elements (shaders, environment) are:
+  - Developer's primary interest and learning goal
+  - Can be tested/iterated in Scene view or with static Game camera
+  - More impactful for portfolio showcase
+  - Foundation for learning ShaderGraph (needed for all custom shaders)
+
+- Scene inspection is sufficient for testing without player movement
+
+### New Priority Order:
+1. **Water shader** (ShaderGraph) - High visual impact, teaches foundation
+2. **Basic terrain** - Context for water placement
+3. **Vegetation/wind shader** - Builds on ShaderGraph knowledge
+4. **Minimal controller** - Simple capsule + WASD + mouse (NO model/animations)
+5. **Environmental reactivity** - Systems that react to player presence
+6. **Character model/animations** - DEFERRED until environment complete
+
+### Next Immediate Step:
+Create stylized water shader using ShaderGraph (animated, cartoon aesthetic)
+
+---
+
 ## Template for Future Entries
 
 ### [Date] - [Session Title]
