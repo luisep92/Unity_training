@@ -150,6 +150,80 @@ High-level overview of what I built, learned, and overcame during this project.
 
 ---
 
+## First Shader: Stylized Water (Phase 1 - Basic)
+**Date:** November 2, 2025
+**Commit:** [pending]
+
+### What I Did
+- Created first Shader Graph: `StylizedWater_Shader.shadergraph`
+- Built water shader with animated flow effect
+- Implemented transparency with variable opacity
+- Created configurable properties (Water Color, Flow Speed, Water Noise Scale)
+- Set up TestWater scene with plane, camera, and test cube
+
+### What I Learned
+- **Shader Graph workflow:** Visual node editor → compiles to HLSL → GPU execution
+- **UVs (Texture Coordinates):** 2D mapping (0-1) that defines how patterns map to 3D surfaces
+- **Time-based animation:** Using Time node + math operations creates continuous motion
+- **Gradient Noise:** Procedural pattern generation (Perlin-like noise for organic effects)
+- **Remap node:** Transforms value ranges (e.g., 0-1 → 0.6-1) to control contrast
+- **Alpha/Transparency:** Requires Surface Type: Transparent in both shader and material
+- **Blackboard properties:** Expose shader parameters to Inspector for runtime tweaking
+- **Vertex vs Fragment shaders:**
+  - Vertex: Runs per vertex, can deform geometry (visual only, not physics)
+  - Fragment: Runs per pixel, calculates color/transparency
+- **Post-processing vs Shaders:**
+  - Post-process: 2D image operations after rendering (no geometry)
+  - Shaders: Run during 3D render (can affect geometry visually)
+
+### Shader Structure (Phase 1)
+```
+Time → Multiply(Flow Speed) → Add ← UV
+                                ↓
+                         Gradient Noise(scale)
+                                ↓
+                         Remap(0.6 to 1.0)
+                                ↓
+                         [Water Color] → Multiply → Base Color
+                                ↓
+                              Alpha
+```
+
+**Effect:** Blue-green water with animated noise pattern, semi-transparent with variable opacity.
+
+### Core Concept
+*Shaders execute in parallel on the GPU, processing millions of pixels simultaneously. They're stateless (no memory between frames) and data-flow oriented (input → transformation → output). Understanding this parallel, stateless nature is fundamental to all GPU programming across engines and APIs.*
+
+*Shader Graph abstracts HLSL syntax while teaching correct shader concepts (UVs, noise, time animation, remap). These concepts are universal - Unreal's Material Editor, Godot's Visual Shaders, and Blender's Shader Nodes use identical principles with different node names. Mastering visual shader editors provides 90% of the knowledge needed for any engine.*
+
+*Vertex shaders move geometry VISUALLY (what you see) but don't update physics/collisions (what you touch). Fragment shaders only calculate color/transparency without moving anything. Post-processing operates on the final 2D image after all 3D rendering is complete.*
+
+### Challenges
+- Initial confusion about where to set Surface Type (Graph Settings vs Material Inspector)
+- Understanding the difference between uniform transparency (Float) vs variable transparency (Remap → Alpha)
+- High contrast in noise (black-to-blue) solved with Remap node
+- Visual Scripting package causing warnings → removed via Package Manager
+
+### Camera Configuration (Learned)
+- Post Processing: Enable in camera
+- Anti-aliasing: SMAA (post-process AA, complementary to MSAA)
+- Stop NaNs: Prevents shader math errors
+- Dithering: Reduces color banding in gradients
+
+### Technical Details
+- Shader Graph compiles to HLSL automatically
+- Properties become shader uniforms (accessible from C# via Material.SetFloat/SetColor)
+- Transparent surface type changes render queue (draws after opaque objects)
+- Gradient Noise is GPU-computed (no texture lookup, procedural)
+
+### Next Steps (Phase 2 - Planned)
+- Add normal map animation for wave detail
+- Implement Fresnel effect (edge transparency)
+- Add foam at intersection with objects (depth fade)
+- Explore vertex displacement for 3D waves (visual only)
+
+---
+
 ## Entry Template for Future Updates
 
 **Date:** [Date]
