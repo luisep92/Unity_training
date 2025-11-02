@@ -123,8 +123,8 @@ Assets/
 See: `/mnt/project/keeper.png` - This is the vibrant, saturated, fantasy aesthetic we're aiming for.
 
 ## Development Notes
-- Developer has strong C# knowledge but is "a bit rusty" with Unity
-- Familiar with Godot and general game dev concepts
+- Experienced with Unity and C# programming
+- Strong focus on professional code quality and architecture
 - NOT an artist - will use asset packs
-- Strong interest in learning shaders
-- Prefers clear, explicit instructions over implicit assumptions
+- Learning shaders and advanced Unity techniques
+- Prefers concise, direct communication
