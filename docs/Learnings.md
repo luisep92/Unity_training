@@ -120,7 +120,7 @@ High-level overview of what I built, learned, and overcame during this project.
 
 ## Downgrade to Unity 2022.3 LTS for Stability
 **Date:** November 2, 2025
-**Commit:** [pending]
+**Commit:** [`96e3442`](https://github.com/luisep92/Unity_training/commit/96e3442)
 
 ### What I Did
 - Downgraded from Unity 6.0 (6000.2.10f1) to Unity 2022.3.62f3 LTS
