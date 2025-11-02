@@ -152,7 +152,7 @@ High-level overview of what I built, learned, and overcame during this project.
 
 ## First Shader: Stylized Water (Phase 1 - Basic)
 **Date:** November 2, 2025
-**Commit:** [pending]
+**Commit:** [`fd608ba`](https://github.com/luisep92/Unity_training/commit/fd608ba)
 
 ### What I Did
 - Created first Shader Graph: `StylizedWater_Shader.shadergraph`
