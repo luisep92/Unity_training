@@ -9,12 +9,12 @@ High-level overview of what I built, learned, and overcame during this project.
 **Commit:** [`6921f64`](https://github.com/luisep92/Unity_training/commit/6921f64)
 
 ### What I Did
-- Set up Unity 6 LTS (6000.2.10f1) project
+- Set up Unity 6 LTS (6000.2.10f1) project (later downgraded to 2022.3 LTS)
 - Configured Git with .gitignore for Unity
 - Created project documentation (.claude/context.md)
 
 ### What I Learned
-- Unity 6 LTS is recent and has stability issues (crashed ~6 times)
+- Unity 6 LTS is recent and has stability issues (crashed ~6 times, later forced downgrade)
 - Proper .gitignore is essential to avoid committing Library/ and Temp/
 
 ### Core Concept
@@ -63,7 +63,7 @@ High-level overview of what I built, learned, and overcame during this project.
 ### Challenges
 - Post-processing not showing in Game view → forgot to enable on camera
 - Searched for Fog in Volume overrides → it's in Lighting settings instead
-- Unity 6 crashed multiple times (AssetImportWorker bug)
+- Unity 6 crashed multiple times (AssetImportWorker bug, later forced downgrade to 2022.3 LTS)
 
 ### Visual Results
 
@@ -115,6 +115,38 @@ High-level overview of what I built, learned, and overcame during this project.
 
 ### Core Concept
 *Learning documentation should capture both tool-specific knowledge and transferable principles. Tool knowledge becomes outdated, but fundamental concepts (rendering pipelines, architecture patterns, performance trade-offs) remain relevant across engines and technologies.*
+
+---
+
+## Downgrade to Unity 2022.3 LTS for Stability
+**Date:** November 2, 2025
+**Commit:** [pending]
+
+### What I Did
+- Downgraded from Unity 6.0 (6000.2.10f1) to Unity 2022.3.62f3 LTS
+- Cleaned package manifest.json to remove Unity 6-specific packages
+- Resolved package dependency conflicts (URP 17.x → 14.x, Visual Scripting 1.9.8 → 1.9.4)
+- Deleted and regenerated Library/ folder for clean reimport
+- Updated all documentation to reflect new version
+
+### What I Learned
+- **Package version compatibility:** Unity versions have specific package version ranges (URP 17.x only works with Unity 6)
+- **Library/ regeneration:** Deleting Library/ forces Unity to reimport/recompile everything from source assets
+- **Stability vs features:** Newer versions aren't always better - LTS releases are battle-tested and more stable
+- **manifest.json vs packages-lock.json:** manifest is your intent, lock file is what's actually resolved
+
+### Core Concept
+*Semantic versioning and dependency resolution are fundamental to modern software. Breaking changes happen between major versions (Unity 6 vs 2022.3, URP 17 vs 14). LTS (Long Term Support) branches prioritize stability over features - critical for learning environments where crashes break flow. Production software often stays 1-2 versions behind cutting edge for this reason.*
+
+### Challenges
+- Initial downgrade failed with "invalid dependencies" errors
+- Unity 6 had stored incompatible package versions in manifest.json
+- Solution: Manually edited manifest.json to compatible versions + deleted Library/
+
+### Why This Happened
+- Unity 6 stability issues (frequent AssetImportWorker crashes)
+- Learning projects need stable environments - crashes disrupt learning flow
+- Unity 2022.3 LTS is mature (released 2023), widely used in production
 
 ---
 

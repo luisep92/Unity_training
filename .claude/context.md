@@ -5,7 +5,7 @@ Create a visually impressive portfolio demo showcasing technical and artistic sk
 Single explorable diorama scene with emergent environmental interactions - NOT a full game.
 
 ## Technical Specs
-- **Unity Version**: 6000.0.61f1 LTS
+- **Unity Version**: 2022.3.62f3 LTS
 - **Render Pipeline**: URP (Universal Render Pipeline)
 - **Target Hardware**: GTX 1080Ti (no RTX features)
 - **Target Performance**: 60fps minimum
@@ -101,7 +101,7 @@ Assets/
 - Original asset packs documented in `ThirdParty_Modified/README.md`
 
 ## Current Status
-- ✅ Unity project created (Unity 6000.0.61f1 LTS)
+- ✅ Unity project created (Unity 2022.3.62f3 LTS)
 - ✅ Git repository initialized with proper .gitignore
 - ✅ Modular folder structure created (core modules only)
 - ✅ Git LFS configured (.gitattributes)

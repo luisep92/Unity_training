@@ -1,6 +1,6 @@
 # Unity Training - Portfolio Diorama
 
-Personal learning project building a visually impressive explorable diorama in Unity 6 URP.
+Personal learning project building a visually impressive explorable diorama in Unity 2022 LTS URP.
 
 ## 📚 Learning Documentation
 
@@ -14,7 +14,7 @@ This project focuses on:
 
 ## Tech Stack
 
-- Unity 6 LTS (6000.2.10f1)
+- Unity 2022.3 LTS (2022.3.62f3)
 - Universal Render Pipeline (URP)
 - ShaderGraph for custom shaders
 - Git LFS for binary assets

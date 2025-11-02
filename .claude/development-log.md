@@ -39,7 +39,7 @@ Assets/
 - Low-poly hand-painted aesthetic
 
 ### Technical Constraints
-- Unity 6000.0.61f1 LTS
+- Unity 2022.3.62f3 LTS
 - URP (no HDRP, no RTX features)
 - GTX 1080Ti target hardware
 - 60fps minimum
@@ -117,6 +117,7 @@ Assets/
 
 ### Problems Encountered:
 - Unity 6 stability issues: Multiple crashes during session (AssetImportWorker errors)
+- **Downgraded to Unity 2022.3 LTS** (2025-11-02) for stability
 - Initial confusion about Volume system vs URP Asset roles clarified
 - Fog is NOT a Volume override in URP (unlike HDRP) - configured in Lighting settings instead
 

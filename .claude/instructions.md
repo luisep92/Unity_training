@@ -92,7 +92,7 @@
 - Shader complexity should be moderate (no RTX-only features, careful with overdraw)
 
 ## Current Project State
-- Unity 6000.0.61f1 LTS
+- Unity 2022.3.62f3 LTS
 - URP template project created
 - Git repo initialized
 - Folder structure designed but not yet created in Unity
