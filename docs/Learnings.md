@@ -101,7 +101,7 @@ High-level overview of what I built, learned, and overcame during this project.
 
 ## Documentation Enhancement: Learning-Focused Workflow
 **Date:** November 2, 2025
-**Commit:** [`6a99793`](https://github.com/luisep92/Unity_training/commit/6a99793)
+**Commit:** [`054ff6a`](https://github.com/luisep92/Unity_training/commit/054ff6a)
 
 ### What I Did
 - Updated `.claude/instructions.md` with "Teaching Mode" section
